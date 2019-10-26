@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
-
+import '../css/styles.css'
 
 class Header extends Component {
+
+  inputChangeHandler(event) {
+    console.log(event.target.value)
+  }
+
   render() {
-    const styles = {
-      header: {
-        background: '#03a9f4'
-      },
-      logo: {
-        color: '#fff',
-        fontFamily: 'Anton',
-        textAlign: 'center'
-      }
-    }
 
     return (
-      <header style={styles.header}>
-        <div style={styles.logo}> Logo </div>
-        <input type="text"/>
+      <header className="header">
+        <div className="logo">Logo</div>
+        <input
+          type="text"
+          onChange={(e) => this.inputChangeHandler(e)}
+        />
       </header>
     )
   }
