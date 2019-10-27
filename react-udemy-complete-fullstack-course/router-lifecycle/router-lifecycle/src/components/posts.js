@@ -9,24 +9,24 @@ const Posts = () => {
     {id:'3', name:'Post3'}
   ];
 
-  // const list = ids.map(item => {
-  //   return (
-  //       <span key={item.id}>
-  //         <Link to={item.id}>{item.name}</Link><br/>
-  //       </span>
-  //   )
-  // });
+  const list = ids.map(item => {
+    return (
+        <span key={item.id}>
+          <Link to={item.id}>{item.name}</Link><br/>
+        </span>
+    )
+  });
 
-  // return (
-  //   <div>
-  //     {list}
-  //   </div>
-  // )
-  return [
-    <div key="1"> Hello </div>,
-    <div key="2"> I am </div>,
-    <div key="3"> a react app </div>
-  ]
+  return (
+    <div>
+      {list}
+    </div>
+  )
+  // return [
+  //   <div key="1"> Hello </div>,
+  //   <div key="2"> I am </div>,
+  //   <div> a react app </div>
+  // ]
 }
 
 export default Posts;
