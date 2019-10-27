@@ -9,14 +9,31 @@ import JSON from './db.json';
 class App extends Component {
 
   state = {
-    news: JSON
+    news: JSON,
+    filtered: []
+  }
+
+  // Filters news by keyword
+  getKeyword = (event) => {
+    let keyword = event.target.value;
+    let filtered = this.state.news.filter((item) => {
+      return item.title.indexOf(keyword) > -1
+    });
+
+    this.setState({
+      filtered
+    });
   }
 
   render() {
+    let newsFiltered = this.state.filtered;
+    let allNews = this.state.news;
     return (
       <div>
-          <Header/>
-          <NewsList news={this.state.news}>
+          <Header keywords={this.getKeyword}/>
+          <NewsList news={
+              newsFiltered.length === 0 ? allNews : newsFiltered
+            }>
             <h2>
               Today's News Headlines are:
             </h2>
