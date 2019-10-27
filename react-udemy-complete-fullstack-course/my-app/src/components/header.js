@@ -3,8 +3,19 @@ import '../css/styles.css'
 
 class Header extends Component {
 
-  inputChangeHandler(event) {
-    console.log(event.target.value)
+ //P.S. You should always avoid using Class Components with State as it uses more memory
+ // and are hard to maintain. Rather use Functional components as they are light weight
+  state = {
+    title: "The Keywords are:",
+    keywords: ""
+  }
+
+  // Arrow function declaration removes the need of using bind with this,
+  // as it refers to the scope of the class
+  inputChangeHandler = (event) => {
+    this.setState({
+      keywords: event.target.value
+    })
   }
 
   render() {
@@ -14,8 +25,10 @@ class Header extends Component {
         <div className="logo">Logo</div>
         <input
           type="text"
-          onChange={(e) => this.inputChangeHandler(e)}
+          onChange={this.inputChangeHandler}
         />
+        <div>{this.state.title}</div>
+        <div>{this.state.keywords}</div>
       </header>
     )
   }
