@@ -6,7 +6,6 @@ class Header extends Component {
  //P.S. You should always avoid using Class Components with State as it uses more memory
  // and are hard to maintain. Rather use Functional components as they are light weight
   state = {
-    title: "The Keywords are:",
     keywords: ""
   }
 
@@ -19,7 +18,6 @@ class Header extends Component {
   }
 
   render() {
-
     return (
       <header className="header">
         <div className="logo">Logo</div>
@@ -27,7 +25,7 @@ class Header extends Component {
           type="text"
           onChange={this.inputChangeHandler}
         />
-        
+
       </header>
     )
   }
