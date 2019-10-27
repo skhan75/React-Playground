@@ -19,18 +19,24 @@ class TransitionComp extends Component{
       <div>
         <Transition
           in={this.state.show}
-          timeout={2000}
-          mountOnEnter
-          unmountOnExit
+          timeout={{
+            enter: 2000,
+            exit: 20
+          }}
+          enter={true}
+          exit={true}
+
+          onEnter={(node) => {
+            console.log("ENTER")
+          }}
+
+          onExit={(node) => {
+            console.log("EXIT")
+          }}
         >
         { state =>
-          <div style={{
-              background: 'red',
-              height: '100px',
-              transition:'all 2s ease',
-              opacity: state === 'exited' || state === 'exiting' ? 0 : 1
-          }}>
-            { state }
+          <div className={`square square-${state}`}>
+            { `square square-${state}` }
           </div>
          }
         </Transition>
