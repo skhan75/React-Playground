@@ -9,6 +9,7 @@ import Posts from './components/posts';
 import Profile from './components/profiles';
 import PostItem from './components/post_items';
 import Life from './components/lifecycles';
+import Conditional from './components/conditional'
 
 const App = () => {
   return(
@@ -30,7 +31,8 @@ const App = () => {
             activeStyle={{color:'red'}}
             activeClassName='selected'
           > Profile </NavLink><br/>
-          <NavLink to="/life">Life</NavLink>
+          <NavLink to="/life">Life</NavLink><br/>
+          <NavLink to="/conditional">Conditional</NavLink>
           <hr/>
         </header>
 
@@ -39,6 +41,7 @@ const App = () => {
           <Route path="/posts" component={Posts}/>
           <Route path="/profile" component={Profile}/>
           <Route path="/life" component={Life}/>
+          <Route path="/conditional" component={Conditional}/>
           <Route path="/" exact component={Home}/>
           <Route render={()=> <h3>Oops 404!!</h3>}/>
         </Switch>
